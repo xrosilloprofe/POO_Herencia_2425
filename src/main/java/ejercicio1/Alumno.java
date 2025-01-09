@@ -5,7 +5,6 @@ public class Alumno extends Persona{
     private Grado grado;
 
     public Alumno(String nombre, String apellidos, String DNI, int edad, Grado grado){
-        //construir persona
         super(nombre,apellidos,DNI,edad);
         this.grado=grado;
         this.NIA = generarNIA();
@@ -17,7 +16,7 @@ public class Alumno extends Persona{
         this.grado = grado;
     }
 
-    private int generarNIA(){
+    public int generarNIA(){
         return (int)(Math.random()*100000000);
     }
 

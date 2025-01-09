@@ -1,12 +1,35 @@
 package ejercicio1;
 
-public class Profesor extends Persona{
-    private Grado[] grados;
+import java.util.Arrays;
 
-    public Profesor(String nombre, String apellidos, String DNI, int edad, Grado[] grados){
+public class Profesor extends Persona{
+    private Grado[] gradosImparte;
+
+    public Profesor(String nombre, String apellidos, String DNI, int edad, Grado[] gradosImparte){
         super(nombre, apellidos, DNI, edad);
-        this.grados = grados;
+        this.gradosImparte = gradosImparte;
     }
+
+    public Grado[] getGradosImparte() {
+        return gradosImparte;
+    }
+
+    public void setGradosImparte(Grado... gradosImparteVector){
+        //transforma el parámetro indeterminado gradosImparteVector en un arrya de Grado
+        this.gradosImparte = gradosImparteVector;
+    }
+
+    @Override
+    public void imprimirDNI() {
+        System.out.println("Desde la clase Profesor imprimo DNI " + this.getDNI());
+    }
+
+    @Override
+    public String toString() {
+        return "Profesor de " + Arrays.toString(gradosImparte) + " "
+                + super.toString();
+    }
+
 
 
 
