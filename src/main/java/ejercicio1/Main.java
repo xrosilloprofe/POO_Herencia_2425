@@ -51,6 +51,21 @@ public class Main {
         marina = new Profesor("marina", "ramirez", "73A", 20,new Grado[]{Grado.PRIMERO_DAM});
         System.out.println(marina);
 
+        //polimorfismo
+        Object marcosObjeto = new Directivo("marcos","martinez","97Q",49,new Grado[]{Grado.SEGUNDO_SMR},"Jefe de estudios");
+        System.out.println(marcosObjeto);
+        //casting explícito
+        Directivo marcos= null;
+        if(marcosObjeto instanceof Directivo){
+            marcos = (Directivo) marcosObjeto;
+        }
+        marcos.cumplirAnyos();
+        marcos.setCargo("Director");
+        System.out.println(marcos);
+
+
+
+
 
     }
 

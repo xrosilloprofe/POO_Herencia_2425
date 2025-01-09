@@ -1,17 +1,19 @@
-package ejercicio1;
+package ejercicio1abstracto;
+
+import ejercicio1.Grado;
+import ejercicio1.Persona;
 
 import java.util.Arrays;
 
-public class Profesor extends Persona{
-    protected Grado[] gradosImparte;
+public class Profesor extends PersonaAbstracta {
+    protected ejercicio1.Grado[] gradosImparte;
 
-
-    public Profesor(String nombre, String apellidos, String DNI, int edad, Grado[] gradosImparte){
+    public Profesor(String nombre, String apellidos, String DNI, int edad, ejercicio1.Grado[] gradosImparte){
         super(nombre, apellidos, DNI, edad);
         this.gradosImparte = gradosImparte;
     }
 
-    public Grado[] getGradosImparte() {
+    public ejercicio1.Grado[] getGradosImparte() {
         return gradosImparte;
     }
 
