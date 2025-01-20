@@ -13,15 +13,9 @@ public class Coche {
         this.matricula = matricula;
     }
 
-    //GETTER
-    public String getMarca(){ return marca;}
-    public String getModelo() { return modelo;}
-    public String getMatricula() {return matricula;}
-
-
     @Override
     public String toString(){
-        return "Marca: " + marca + " modelo: " + modelo
-                + "matricula: " + matricula;
+        return "marca: " + marca + " modelo: " + modelo
+                + " matricula: " + matricula;
     }
 }

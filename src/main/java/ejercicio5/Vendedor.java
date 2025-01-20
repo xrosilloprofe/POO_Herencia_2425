@@ -2,10 +2,9 @@ package ejercicio5;
 
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.List;
 
-public class Vendedor extends Empleado{
-    private static final int INCREMENTO=10;
+public class Vendedor extends Empleado implements Comparable<Vendedor> {
+    private static final double INCREMENTO=1.10;
     private Coche coche;
     private String areaVentas;
     private double comision;
@@ -36,16 +35,17 @@ public class Vendedor extends Empleado{
     public void removeCliente(String cliente){
         int posicion = buscarCliente(cliente);
         if(posicion>=0){
-            clientes[posicion] = "";
+            String[] aux = new String[clientes.length-1];
+            System.arraycopy(clientes,0,aux,0,posicion);
+            System.arraycopy(clientes,posicion+1,aux,posicion,clientes.length-posicion-1);
+            clientes = aux;
             Arrays.sort(clientes);
-            clientes = Arrays.copyOfRange(clientes,1,clientes.length);
         }
     }
 
     public void cambiarCoche(Coche coche){
         this.coche = coche;
     }
-
 
     @Override
     public boolean cambiarSupervisor(Empleado empleado) {
@@ -59,7 +59,7 @@ public class Vendedor extends Empleado{
 
     @Override
     public void incrementarSalario() {
-        setSalario(getSalario()*(1+INCREMENTO/100));
+        setSalario(getSalario()*INCREMENTO);
     }
 
     @Override
@@ -73,13 +73,29 @@ public class Vendedor extends Empleado{
     }
 
     @Override
+    public boolean equals(Object object){
+        if(!(object instanceof Vendedor))
+            return false;
+        Vendedor vendedor = (Vendedor) object;
+        return  vendedor.getApellidos().equals(getApellidos()) &&
+                vendedor.getDNI().equals(getDNI());
+    }
+
+    @Override
     public String toString() {
-        return "Vendedor{" +
-                "coche=" + coche +
-                ", areaVentas='" + areaVentas + '\'' +
-                ", comision=" + comision +
-                ", movil='" + movil + '\'' +
-                ", clientes=" + Arrays.toString(clientes) +
-                '}' + super.toString();
+        return "Vendedor " + super.toString() +
+                "\n\tcoche[" + coche + "]" +
+                ", areaVentas: " + areaVentas +
+                ", comision: " + comision +
+                ", movil: " + movil +
+                ", clientes: " + Arrays.toString(clientes);
+    }
+
+    @Override
+    public int compareTo(Vendedor vendedor) {
+        if(getApellidos().equals(vendedor.getApellidos())){
+            return getNombre().compareTo(vendedor.getNombre());
+        }
+        return getApellidos().compareTo(vendedor.getApellidos());
     }
 }

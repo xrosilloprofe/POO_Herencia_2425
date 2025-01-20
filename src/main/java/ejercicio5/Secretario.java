@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Secretario extends Empleado{
     private String despacho;
     private String numFax;
-    private static final int INCREMENTO=15;
+    private static final double INCREMENTO=1.15;
 
     public Secretario(String nombre, String apellidos, String DNI, String direccion, String telefono, LocalDate fechaInicio, double salario, String despacho, String numFax) {
         super(nombre, apellidos, DNI, direccion, telefono, fechaInicio, salario);
@@ -25,15 +25,7 @@ public class Secretario extends Empleado{
 
     @Override
     public void incrementarSalario() {
-        setSalario(getSalario()*(1+INCREMENTO/100));
-    }
-
-    @Override
-    public String toString() {
-        return "Secretario{" +
-                "despacho='" + despacho + '\'' +
-                ", numFax='" + numFax + '\'' +
-                '}' + super.toString();
+        setSalario(getSalario()*INCREMENTO);
     }
 
     @Override
@@ -44,5 +36,12 @@ public class Secretario extends Empleado{
     @Override
     public double calcContCom() {
         return getSalario()*0.03;
+    }
+
+    @Override
+    public String toString() {
+            return "Secretario " + super.toString() +
+            "\n\tdespacho=" + despacho +
+            ", numFax='" + numFax;
     }
 }

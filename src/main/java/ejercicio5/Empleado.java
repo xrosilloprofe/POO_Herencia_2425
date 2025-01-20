@@ -1,7 +1,6 @@
 package ejercicio5;
 
 import java.time.LocalDate;
-
 import static java.time.temporal.ChronoUnit.DAYS;
 
 public abstract class Empleado extends Persona implements CotizacionSegSoc{
@@ -49,9 +48,9 @@ public abstract class Empleado extends Persona implements CotizacionSegSoc{
     @Override
     public String toString(){
         return "Empleado " + super.toString() + " con telefono: " +
-                telefono + " antigüedad en días" +
-                DAYS.between(LocalDate.now(),fechaInicio) +
+                telefono + " antigüedad en días: " +
+                DAYS.between(fechaInicio,LocalDate.now()) +
                 " y salario: " + salario +
-                "\n\tsupervisor: " + supervisor;
+                "\n\tsupervisor: " + (supervisor==null?"sin supervisor":supervisor.getNombre() + " " + supervisor.getApellidos());
     }
 }
