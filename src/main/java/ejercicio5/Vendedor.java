@@ -93,9 +93,9 @@ public class Vendedor extends Empleado implements Comparable<Vendedor> {
 
     @Override
     public int compareTo(Vendedor vendedor) {
-        if(getApellidos().equals(vendedor.getApellidos())){
-            return getNombre().compareTo(vendedor.getNombre());
+        if(this.getApellidos().equals(vendedor.getApellidos())){
+            return this.getNombre().compareTo(vendedor.getNombre());
         }
-        return getApellidos().compareTo(vendedor.getApellidos());
+        return this.getApellidos().compareTo(vendedor.getApellidos());
     }
 }
