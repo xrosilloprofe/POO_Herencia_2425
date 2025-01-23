@@ -32,6 +32,10 @@ public class TestComparable {
 //        Vendedor[] vendedors = new Vendedor[]{eric,angel,pau};
 //        Arrays.sort(vendedors);
 //        System.out.println(Arrays.toString(vendedors));
+        Profesor profesor1 = new Profesor("string","string","9330","1234");
+        Profesor profesor2 = new Profesor("abc","dce","345","0198");
+        profesor1.compareTo(profesor2);
+        System.out.println(profesor1.compareTo(andrii));
 
     }
 
