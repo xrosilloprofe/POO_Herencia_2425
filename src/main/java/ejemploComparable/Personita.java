@@ -43,10 +43,10 @@ public class Personita implements Comparable<Personita>{
     public int compareTo(Personita personita) {
         if(this.apellidos.equals(personita.getApellidos())){
             if(this.nombre.equals(personita.getNombre())){
-                return this.DNI.compareTo(personita.getDNI());
+                return this.DNI.compareToIgnoreCase(personita.getDNI());
             }
-            return this.nombre.compareTo(personita.getNombre());
+            return this.nombre.compareToIgnoreCase(personita.getNombre());
         }
-        return this.apellidos.compareTo(personita.getApellidos());
+        return this.apellidos.compareToIgnoreCase(personita.getApellidos());
     }
 }
